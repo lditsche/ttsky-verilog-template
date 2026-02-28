@@ -16,5 +16,5 @@ In this project, I use a Wallace tree multiplier to quickly compute the multipic
 cd test
 make
 
-All testing for this project was done in cocotb, simply change the values of ui_in and uio_in to match the corresponding values of a and b and p. ui_in is mapped to {b[1:0], a[5:0]}, and uio_in is mapped to {4'bxxxx, b[5:2]}. uo_out is mapped to p[7:0] and uio_out is mapped to {p[11:8], 4'bxxxx}. So for example, to test 63 * 63 (6'b111111 * 6'b111111) = 3969 (12'b111110000001), you would set ui_in to 255, uio_in to 15, and check to see if uo_out = 129 and uio_out = 240.
+All testing for this project was done in cocotb, simply change the values of ui_in and uio_in to match the corresponding values of a and b and p. ui_in is mapped to {b[1:0], a[5:0]}, and uio_in is mapped to {4'bxxxx, b[5:2]}. uo_out is mapped to p[7:0] and uio_out is mapped to {p[11:8], 4'bxxxx}. So for example, to test 63 * 63 (6'b111111 * 6'b111111) = 3969 (12'b111110000001), you would set ui_in to 255, uio_in to 15, and check to see if uo_out = 129 and uio_out = 240. I am currently testing a random case, 0 * 0, and 63 * 63, which is sufficient for testing complete functionality because this the shifting mechanisms for both the inputs being a 1 or a 0. If there was something wrong with how the inputs were shifted, it would've been detected in the 63*63 case.
 
